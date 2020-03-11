@@ -3,13 +3,11 @@ package com.sharode.Collections;
 public class Stack<E> {
 	
 	private StackNode<E> head;
+	private int size;
 	
 	public Stack() {
 		head = null;
-	}
-	
-	public Stack(E data) {
-		head = new StackNode<E>(data);
+		size = 0;
 	}
 	
 	public void push(E data) {
@@ -20,15 +18,28 @@ public class Stack<E> {
 			newNode.setNext(head);
 		}
 		
-		head = new StackNode<E>(data);
+		head = newNode;
+		
+		size++;
 	}
 	
 	public E pop() {
 		
-		E result;
+		E result = head.get();
 		
+		head = head.getNext();
 		
-		return head.get();
+		size--;
+		
+		return result;
+	}
+	
+	public E peek() {
+		return head != null ? head.get() : null;
+	}
+	
+	public int size() {
+		return size;
 	}
 	
 	public boolean isEmpty() {
@@ -50,6 +61,10 @@ public class Stack<E> {
 		StackNode(T data) {
 			this.data = data;
 			nextNode = null;
+		}
+		
+		public StackNode<T> getNext() {
+			return nextNode;
 		}
 		
 		public void setNext(StackNode<T> data) {
