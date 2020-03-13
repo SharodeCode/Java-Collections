@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 
 class StackTesting {
 	
+	//TODO: Seperate Random obeject out to class members
+	
 	@Test
 	@DisplayName("Test size of stack after pushing then popping a value.")
 	void StackTest_size_003() {
@@ -106,6 +108,7 @@ class StackTesting {
 		assertTrue(stack.isEmpty());
 	}
 	
+	//TODO: Add size test for after pop
 	@Test
 	@DisplayName("Test size of initial stack.")
 	void StackTest_size_001() {
