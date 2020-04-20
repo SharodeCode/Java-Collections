@@ -95,4 +95,22 @@ public class ArrayList<E> {
     public int capacity() {
     	return capacity;
     }
+    
+	/**
+	 * Returns the number of elements in the array
+	 * 
+	 * @return size
+	 */
+	public int size() {
+		return size;
+	}
+	
+    /**
+     * Clears the array, also resets the size and capacity.
+     */
+    public void clear() {
+        capacity = INIT_CAPACITY;
+        size = 0;
+        data = (E[]) new Comparable[capacity];
+	}
 }
