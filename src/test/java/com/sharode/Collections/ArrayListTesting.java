@@ -258,4 +258,164 @@ class ArrayListTesting {
 	    assertTrue(result);
 	}
 	
+	@Test
+	@DisplayName("Test toString of default empty collection.")
+	public void ArrayListTest_ToString_001()
+	{
+		ArrayList<Integer> arrayList = new ArrayList<Integer>();
+		
+		boolean result = false;
+		
+		result = arrayList.toString().equals("[]") ? true : false;
+		
+	    assertTrue(result);
+	}
+	
+	@Test
+	@DisplayName("Test toString after multiple adds.")
+	public void ArrayListTest_ToString_002()
+	{
+		ArrayList<Integer> arrayList = new ArrayList<Integer>();
+		
+		boolean result = false;
+		
+		int[] randomIntegers = {random.nextInt(), random.nextInt(), random.nextInt(), random.nextInt(), random.nextInt()};
+		
+		for(int i = 0; i < randomIntegers.length; i++) {
+			arrayList.add(randomIntegers[i]);
+		}
+		
+		result = arrayList.toString().equals("[" + randomIntegers[0] + ", " + randomIntegers[1] + ", " + randomIntegers[2] + ", " + randomIntegers[3] + ", " + randomIntegers[4] + "]") ? true : false;
+		
+	    assertTrue(result);
+	}
+	
+	@Test
+	@DisplayName("Test toString after set.")
+	public void ArrayListTest_ToString_003()
+	{
+		ArrayList<Integer> arrayList = new ArrayList<Integer>();
+		
+		boolean result = false;
+		
+		int[] randomIntegers = {random.nextInt(), random.nextInt(), random.nextInt(), random.nextInt(), random.nextInt()};
+		int newInt = random.nextInt();
+		
+		for(int i = 0; i < randomIntegers.length; i++) {
+			arrayList.add(randomIntegers[i]);
+		}
+		
+		arrayList.set(2, newInt);
+		
+		result = arrayList.toString().equals("[" + randomIntegers[0] + ", " + randomIntegers[1] + ", " + newInt + ", " + randomIntegers[3] + ", " + randomIntegers[4] + "]") ? true : false;
+		
+	    assertTrue(result);
+	}
+	
+	@Test
+	@DisplayName("Test toString after clear.")
+	public void ArrayListTest_ToString_004()
+	{
+		ArrayList<Integer> arrayList = new ArrayList<Integer>();
+		
+		boolean result = false;
+		
+		int[] randomIntegers = {random.nextInt(), random.nextInt(), random.nextInt(), random.nextInt(), random.nextInt()};
+		
+		for(int i = 0; i < randomIntegers.length; i++) {
+			arrayList.add(randomIntegers[i]);
+		}
+		
+		arrayList.clear();
+		
+		result = arrayList.toString().equals("[]") ? true : false;
+		
+	    assertTrue(result);
+	}
+	
+	@Test
+	@DisplayName("Test toArray of default empty collection.")
+	public void ArrayListTest_ToArray_001()
+	{
+		ArrayList<Integer> arrayList = new ArrayList<Integer>();
+		
+		boolean result = false;
+		
+		Object[] array = arrayList.toArray();
+		
+		result = array.length == 0 ? true : false;
+		
+	    assertTrue(result);
+	}
+	
+	@Test
+	@DisplayName("Test toArray after add.")
+	public void ArrayListTest_ToArray_002()
+	{
+		ArrayList<Integer> arrayList = new ArrayList<Integer>();
+		
+		boolean result = false;
+		
+		int[] randomIntegers = {random.nextInt(), random.nextInt(), random.nextInt(), random.nextInt(), random.nextInt()};
+		
+		for(int i = 0; i < randomIntegers.length; i++) {
+			arrayList.add(randomIntegers[i]);
+		}
+		
+		Object[] array = arrayList.toArray();
+		
+		for(int i = 0; i < randomIntegers.length; i++) {
+			assertTrue((Integer)array[i] == randomIntegers[i]);
+		}
+	}
+	
+	@Test
+	@DisplayName("Test toArray after set.")
+	public void ArrayListTest_ToArray_003()
+	{
+		ArrayList<Integer> arrayList = new ArrayList<Integer>();
+		
+		boolean result = false;
+		
+		int[] randomIntegersOne = {random.nextInt(), random.nextInt(), random.nextInt(), random.nextInt(), random.nextInt()};
+		int[] randomIntegersTwo = {random.nextInt(), random.nextInt(), random.nextInt(), random.nextInt(), random.nextInt()};
+		
+		for(int i = 0; i < randomIntegersOne.length; i++) {
+			arrayList.add(randomIntegersOne[i]);
+		}
+		
+		for(int i = 0; i < randomIntegersTwo.length; i++) {
+			arrayList.set(i, randomIntegersTwo[i]);
+		}
+
+		Object[] array = arrayList.toArray();
+		
+		for(int i = 0; i < randomIntegersTwo.length; i++) {
+			assertTrue((Integer)array[i] == randomIntegersTwo[i]);
+		}
+	}
+	
+	@Test
+	@DisplayName("Test toArray after clear.")
+	public void ArrayListTest_ToArray_004()
+	{
+		ArrayList<Integer> arrayList = new ArrayList<Integer>();
+		
+		boolean result = false;
+		
+		int[] randomIntegers = {random.nextInt(), random.nextInt(), random.nextInt(), random.nextInt(), random.nextInt()};
+		
+		for(int i = 0; i < randomIntegers.length; i++) {
+			arrayList.add(randomIntegers[i]);
+		}
+		
+		arrayList.clear();
+
+		Object[] array = arrayList.toArray();
+		
+		result = array.length == 0 ? true : false;
+		
+	    assertTrue(result);
+	}
+	
 }
