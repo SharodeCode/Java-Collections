@@ -113,4 +113,39 @@ public class ArrayList<E> {
         size = 0;
         data = (E[]) new Comparable[capacity];
 	}
+    
+	/**
+	 * Returns current data as an array
+	 * 
+	 * @return data[]
+	 */
+    public E[] toArray() {
+		return Arrays.copyOf(data, size);
+	}
+    
+    /**
+     * This method sweeps over the array, creating a string in array style e.g. [a, b, c]
+     * 
+     * @return String of all elements in array, with array styling.
+     */
+    public String toString() {
+    	
+    	if (size == 0) {
+    		return "[]";
+    	}
+    	
+    	StringBuilder sb = new StringBuilder();
+    	sb.append('[');
+    	
+    	for(int i = 0; i < size; i++) {
+    		E temp = data[i];
+    		sb.append(temp);
+    		
+    		if(!(i == (size - 1))) {
+    			sb.append(", ");
+    		}
+    	}
+    	
+    	return sb.append(']').toString();
+    }
 }
