@@ -11,6 +11,8 @@ class QueueTesting {
 	
 	private Random random = new Random();
 	
+	//TODO: Extra test for add null value
+	
 	@Test
 	@DisplayName("Test value after enqueue then dequeue.")
 	void QueueTest_enqueueAndDequeue_001() {

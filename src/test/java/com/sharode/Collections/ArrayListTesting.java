@@ -13,6 +13,8 @@ class ArrayListTesting {
 	
 	private Random random = new Random();
 	
+	//TODO: Extra test for add null value
+	
 	@Test
 	@DisplayName("Test add  single value to ArrayList.")
 	public void ArrayListTest_AddAndGet_001()
