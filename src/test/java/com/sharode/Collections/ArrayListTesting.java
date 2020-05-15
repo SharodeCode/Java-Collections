@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 
 import com.sharode.Collections.ArrayList.ArrayList;
 
-
 class ArrayListTesting {
 	
 	private Random random = new Random();
@@ -84,6 +83,17 @@ class ArrayListTesting {
 		}
 		
 		assertTrue(result);
+	}
+	
+	@Test
+	@DisplayName("Test add null value.")
+	public void ArrayListTest_AddAndGet_005()
+	{
+		ArrayList<Integer> arrayList = new ArrayList<Integer>();
+		
+		arrayList.add(null);
+		
+		assertTrue(arrayList.size() == 0);
 	}
 	
 	@Test
