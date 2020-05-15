@@ -7,6 +7,8 @@ import java.util.Random;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import com.sharode.Collections.Queue.Queue;
+
 class QueueTesting {
 	
 	private Random random = new Random();
@@ -66,6 +68,16 @@ class QueueTesting {
 		for(int i = 0; i < randomIntegersTwo.length; i++) {
 			assertTrue(queue.dequeue() == randomIntegersTwo[i]);
 		}
+	}
+	
+	@Test
+	@DisplayName("Test enqueue null value.")
+	void QueueTest_enqueueAndDequeue_004() {
+		Queue<Integer> queue = new Queue<Integer>();
+		
+		queue.enqueue(null);
+		
+		assertTrue(queue.size() == 0);
 	}
 	
 	@Test
