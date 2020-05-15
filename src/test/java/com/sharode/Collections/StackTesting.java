@@ -7,27 +7,16 @@ import java.util.Random;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import com.sharode.Collections.Stack.Stack;
+
 class StackTesting {
 	
-	//TODO: Seperate Random obeject out to class members
-	//TODO: Extra test for add null value
-	
-	@Test
-	@DisplayName("Test size of stack after pushing then popping a value.")
-	void StackTest_size_003() {
-		Stack<Integer> stack = new Stack<Integer>();
-		
-		stack.push(5);
-		stack.pop();
-		
-		assertTrue(stack.size() == 0);
-	}
+	Random random = new Random();
 	
 	@Test
 	@DisplayName("Test value after push and pop.")
 	void StackTest_pushAndPop_001() {
 		
-		Random random = new Random();
 		Stack<Integer> stack = new Stack<Integer>();
 		
 		int randomInteger = random.nextInt();
@@ -40,7 +29,7 @@ class StackTesting {
 	@Test
 	@DisplayName("Test multiple values after push and pop.")
 	void StackTest_pushAndPop_002() {
-		Random random = new Random();
+
 		Stack<Integer> stack = new Stack<Integer>();
 		
 		int[] randomIntegers = {random.nextInt(), random.nextInt(), random.nextInt(), random.nextInt(), random.nextInt()};
@@ -57,7 +46,7 @@ class StackTesting {
 	@Test
 	@DisplayName("Test multiple values after addind and removing values.")
 	void StackTest_pushAndPop_003() {
-		Random random = new Random();
+
 		Stack<Integer> stack = new Stack<Integer>();
 		
 		int[] randomIntegers = {random.nextInt(), random.nextInt(), random.nextInt(), random.nextInt(), random.nextInt()};
@@ -79,6 +68,16 @@ class StackTesting {
 		for(int i = (randomIntegers.length - 1); i >= 0; i--) {
 			assertTrue(stack.pop() == randomIntegers[i]);
 		}
+	}
+	
+	@Test
+	@DisplayName("Test push null value.")
+	void StackTest_pushAndPop_004() {
+		Stack<Integer> stack = new Stack<Integer>();
+		
+		stack.push(null);
+		
+		assertTrue(stack.size() == 0);
 	}
 	
 	@Test
@@ -109,7 +108,6 @@ class StackTesting {
 		assertTrue(stack.isEmpty());
 	}
 	
-	//TODO: Add size test for after pop
 	@Test
 	@DisplayName("Test size of initial stack.")
 	void StackTest_size_001() {
@@ -129,6 +127,17 @@ class StackTesting {
 	}
 	
 	@Test
+	@DisplayName("Test size of stack after pushing then popping a value.")
+	void StackTest_size_003() {
+		Stack<Integer> stack = new Stack<Integer>();
+		
+		stack.push(5);
+		stack.pop();
+		
+		assertTrue(stack.size() == 0);
+	}
+	
+	@Test
 	@DisplayName("Test peek of initial stack.")
 	void StackTest_peek_001() {
 		Stack<Integer> stack = new Stack<Integer>();
@@ -139,7 +148,7 @@ class StackTesting {
 	@Test
 	@DisplayName("Test peek after pushing value to stack.")
 	void StackTest_peek_002() {
-		Random random = new Random();
+
 		Stack<Integer> stack = new Stack<Integer>();
 		
 		int testValue = random.nextInt();
@@ -151,7 +160,7 @@ class StackTesting {
 	@Test
 	@DisplayName("Test peek after popping values from stack.")
 	void StackTest_peek_003() {
-		Random random = new Random();
+
 		Stack<Integer> stack = new Stack<Integer>();
 		
 		int[] randomIntegers = {random.nextInt(), random.nextInt(), random.nextInt()};

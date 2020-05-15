@@ -1,4 +1,4 @@
-package com.sharode.Collections;
+package com.sharode.Collections.ArrayList;
 
 import java.util.Arrays;
 
@@ -26,6 +26,10 @@ public class ArrayList<E> {
      * @return true if element is added successfully.
      */
     public boolean add(E element) {
+    	
+    	if(element == null) {
+    		return false;
+    	}
 
         capacityCheck(size + 1);
     	 
