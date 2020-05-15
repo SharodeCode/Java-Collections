@@ -7,7 +7,8 @@ import java.util.Random;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import com.sharode.Collections.ArrayList;
+import com.sharode.Collections.ArrayList.ArrayList;
+
 
 class ArrayListTesting {
 	
