@@ -108,7 +108,6 @@ class StackTesting {
 		assertTrue(stack.isEmpty());
 	}
 	
-	//TODO: Add size test for after pop
 	@Test
 	@DisplayName("Test size of initial stack.")
 	void StackTest_size_001() {
