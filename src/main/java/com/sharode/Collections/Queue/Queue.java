@@ -1,4 +1,4 @@
-package com.sharode.Collections;
+package com.sharode.Collections.Queue;
 
 public class Queue<E> {
 	
@@ -14,7 +14,16 @@ public class Queue<E> {
 		size = 0;
 	}
 	
+    /**
+     * Add an element to the end of the queue.
+     * 
+     * @param	data - data to add to queue
+     */
 	public void enqueue(E data) {
+		
+		if(data == null) {
+			return;
+		}
 		
 		QueueNode<E> newNode = new QueueNode<E>(data);
 		
@@ -30,6 +39,11 @@ public class Queue<E> {
 		size++;
 	}
 	
+    /**
+     * Return element at the front of the queue, and dequeue from queue.
+     * 
+     * @return	data from front of queue
+     */
 	public E dequeue() {
 		
 		E result;
@@ -50,14 +64,27 @@ public class Queue<E> {
 		return result;
 	}
 	
+    /**
+     * Return element at the front of the queue, without dequeue.
+     * 
+     * @return	data from front of queue
+     */
 	public E peek() {
 		return front != null ? front.get() : null;
 	}
 	
+	/**
+	 * @return	size of queue
+	 */
 	public int size() {
 		return size;
 	}
 	
+	/**
+	 * Returns boolean indicating if queue is empty
+	 * 
+	 * @return	true, if queue is empty
+	 */
 	public boolean isEmpty() {
 		boolean result = false;
 		
@@ -79,14 +106,25 @@ public class Queue<E> {
 			previousNode = null;
 		}
 		
+		/**
+		 * @return	previous element in queue
+		 */
 		public QueueNode<T> getPrevious() {
 			return previousNode;
 		}
 		
+		/**
+		 * Sets the previous node in the queue.
+		 * 
+		 * @param 	data - previous node in queue.
+		 */
 		public void setPrevious(QueueNode<T> data) {
 			previousNode = data;
 		}
 		
+		/**
+		 * @return	node data
+		 */
 		public T get() {
 			return data;
 		}
